@@ -9,6 +9,9 @@ app_color = "grey"
 app_email = "pandikunta@frappe.io"
 app_license = "MIT"
 
+
+required_apps = ["erpnext"]
+
 # Includes in <head>
 # ------------------
 
@@ -187,4 +190,23 @@ app_license = "MIT"
 # auth_hooks = [
 # 	"agriculture.auth.validate"
 # ]
+
+global_search_doctypes = {
+	"Agriculture": [
+		{'doctype': 'Weather', 'index': 1},
+		{'doctype': 'Soil Texture', 'index': 2},
+		{'doctype': 'Water Analysis', 'index': 3},
+		{'doctype': 'Soil Analysis', 'index': 4},
+		{'doctype': 'Plant Analysis', 'index': 5},
+		{'doctype': 'Agriculture Analysis Criteria', 'index': 6},
+		{'doctype': 'Disease', 'index': 7},
+		{'doctype': 'Crop', 'index': 8},
+		{'doctype': 'Fertilizer', 'index': 9},
+		{'doctype': 'Crop Cycle', 'index': 10}
+	]
+}
+
+domains = {
+	'Agriculture': 'agriculture.agriculture.agriculture',
+}
 
