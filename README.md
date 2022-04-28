@@ -7,7 +7,7 @@ The Agriculture Domain of ERPNext comes with features to record crops and land, 
 
 Using bench, [install ERPNext](https://github.com/frappe/bench#installation) as mentioned here.
 
-Once ERPNext is installed, add healthcare app to your bench by running
+Once ERPNext is installed, add agriculture app to your bench by running
 ```sh
 $ bench get-app agriculture
 ```
