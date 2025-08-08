@@ -1,7 +1,7 @@
 // Copyright (c) 2017, Frappe Technologies Pvt. Ltd. and contributors
 // For license information, please see license.txt
 
-frappe.provide("erpnext.crop");
+frappe.provide("agriculture.crop");
 
 frappe.ui.form.on('Crop', {
 	refresh: (frm) => {
@@ -11,23 +11,23 @@ frappe.ui.form.on('Crop', {
 
 frappe.ui.form.on("BOM Item", {
 	item_code: (frm, cdt, cdn) => {
-		erpnext.crop.update_item_rate_uom(frm, cdt, cdn);
+		agriculture.crop.update_item_rate_uom(frm, cdt, cdn);
 	},
 	qty: (frm, cdt, cdn) => {
-		erpnext.crop.update_item_qty_amount(frm, cdt, cdn);
+		agriculture.crop.update_item_qty_amount(frm, cdt, cdn);
 	},
 	rate: (frm, cdt, cdn) => {
-		erpnext.crop.update_item_qty_amount(frm, cdt, cdn);
+		agriculture.crop.update_item_qty_amount(frm, cdt, cdn);
 	}
 });
 
-erpnext.crop.update_item_rate_uom = function(frm, cdt, cdn) {
+agriculture.crop.update_item_rate_uom = function(frm, cdt, cdn) {
 	let material_list = ['materials_required', 'produce', 'byproducts'];
 	material_list.forEach((material) => {
 		frm.doc[material].forEach((item, index) => {
 			if (item.name == cdn && item.item_code){
 				frappe.call({
-					method:'erpnext.agriculture.doctype.crop.crop.get_item_details',
+					method:'agriculture.agriculture.doctype.crop.crop.get_item_details',
 					args: {
 						item_code: item.item_code
 					},
@@ -41,7 +41,7 @@ erpnext.crop.update_item_rate_uom = function(frm, cdt, cdn) {
 	});
 };
 
-erpnext.crop.update_item_qty_amount = function(frm, cdt, cdn) {
+agriculture.crop.update_item_qty_amount = function(frm, cdt, cdn) {
 	let material_list = ['materials_required', 'produce', 'byproducts'];
 	material_list.forEach((material) => {
 		frm.doc[material].forEach((item, index) => {
